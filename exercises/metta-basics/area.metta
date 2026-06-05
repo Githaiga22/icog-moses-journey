@@ -10,3 +10,15 @@
 
 ; print the result
 !(println! (area))
+
+;Example 2
+
+;Length(X) * width(y) * Height(z) calculation
+
+(= (x) 20)
+(= (y) 2)
+(= (z) 10)
+
+(= (area) (* (x) (y) (z)))
+!(println! (area))
+
