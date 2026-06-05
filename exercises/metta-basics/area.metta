@@ -19,6 +19,6 @@
 (= (y) 2)
 (= (z) 10)
 
-(= (volume) (* (x) (y) (z)))
+(= (volume) (* (x) (* (y)  (z))))
 !(println! (volume))
 
