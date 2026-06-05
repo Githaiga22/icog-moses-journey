@@ -14,5 +14,5 @@
 ; !(println! (str-concat "Allan Robinson" "Age: 30"))
 !(println! "Hello World")
 ! "Allan Robinson"
-(= (my-name) "Allan Robinson)
-!println!(str-concat (my-name) "Age: 30")
+(= (my-world) "Kenya")
+!(println! (str-concat (my-world) "Age: 60"))
