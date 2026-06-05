@@ -19,6 +19,6 @@
 (= (y) 2)
 (= (z) 10)
 
-(= (area) (* (x) (y) (z)))
-!(println! (area))
+(= (volume) (* (x) (y) (z)))
+!(println! (volume))
 
