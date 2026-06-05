@@ -10,3 +10,9 @@
 ; Divide arithimetic
 !(/ 100 20)
 
+; Print my full name
+; !(println! (str-concat "Allan Robinson" "Age: 30"))
+!(println! "Hello World")
+! "Allan Robinson"
+(= (my-name) "Allan Robinson)
+!println!(str-concat (my-name) "Age: 30")
