@@ -16,6 +16,7 @@
   ; build knowledge about car drivers and companies
 
   (drives Jason Audi)
+  (drives Mary Audi)
   (drives Bob Mercdes)
   (drives John mitsubishi)
   (drives Ken Dodge)
@@ -26,6 +27,9 @@
   !(match &self (drives John $car) $car)
   !(match &self (drives Ken $car) $car)
   !(match &self (drives Victor $car) $car)
+
+  ;     query which driver drives a certain make
+  !(match &self( drives $driver Audi) $driver)
 
   ; Notes 
   ; (drives Allan mitsubishi) -- database storage into the Atomspace
