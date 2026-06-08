@@ -1,12 +1,19 @@
-; fizzbuzz for one number
+;fizzbuzz challenge
 
 (= (fizzbuzz $n)
-     (if (== (% $n 15) 0) "FizzBuzz"
-     (if (== (% $n 3) 0)  "Fizz"
-     (if (== (% $n 5) 0)  "Buzz"
-                           $n))))
 
-  !(fizzbuzz 15)
-  !(fizzbuzz 9)
-  !(fizzbuzz 10)
-  !(fizzbuzz 7)
+(if (== (% $n 15) 0) "Fizzbuzz"
+(if ( == (% $n 3) 0 ) "Fizz"
+(if (== (% $n 5) 0) "Buzz"
+$n
+)
+)
+)
+)
+!(fizzbuzz 15)
+!(fizzbuzz 7)
+!(fizzbuzz 3)
+!(fizzbuzz 5)
+
+; Notes
+;
