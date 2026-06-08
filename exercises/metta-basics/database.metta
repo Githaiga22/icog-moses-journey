@@ -32,3 +32,17 @@
   ; match -- scans everything stored in the &self
   ; &self -- name for the current Atomspace, where your stored facts live eg. (drives Allan mitsubishi)
   ; $car -- the $ means the blank variable..when metta scans and search the whole database  for any fact such as (drives Allan ??) and returns/fills in the  ?? value as the output
+
+
+  ; Database for teachers and the subjects they teachers
+
+  (teacher Amos Maths)
+  (teacher Alex Physics)
+  (teacher Jane Biology)
+  (teacher Grace English)
+
+  ;query which subject the teacher is responsible of
+  !(match &self (teacher Amos $subject) $subject)
+
+  ; query who teaches Biology
+  !(match &self (teacher $lecturer Biology) $lecturer)
