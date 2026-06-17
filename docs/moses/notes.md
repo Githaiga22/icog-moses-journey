@@ -8,6 +8,109 @@ Source: MOSES Quick Guide (Janicic, revised Vepstas, 2008/2012)
 
 ---
 
+## Simple Explanation
+
+**In one sentence:**
+MOSES is a machine that automatically writes programs, tests them, throws away bad ones, improves good ones, and repeats — until it finds a program that correctly solves your problem.
+
+---
+
+### The Real-World Analogy
+
+Think of MOSES like a chef trying to find the perfect cake recipe, without knowing it in advance:
+
+1. Start with a rough guess — flour, sugar, eggs
+2. Taste it — give it a score
+3. Tweak small things — more sugar, less butter
+4. Taste again — better or worse?
+5. Keep the better version, throw away the worse one
+6. Repeat until the cake is perfect
+
+MOSES does exactly this — but instead of cake recipes, it evolves computer programs.
+
+---
+
+### A Concrete Low-Level Example
+
+Problem given to MOSES:
+"Find a program that takes two True/False inputs and returns True only when BOTH are True."
+
+That is the AND logic gate. You know the answer. MOSES does not — it has to discover it.
+
+**Step 1 — Start with a guess (the Exemplar)**
+
+MOSES begins with the simplest possible program:
+```
+#1
+```
+Just return input 1. Ignore input 2. This is the exemplar — the starting point.
+
+**Step 2 — Attach knobs (build the Representation)**
+
+MOSES attaches adjustable dials called knobs to the exemplar:
+```
+[knob_A: AND or OR or NOT] (#1, #2)
+```
+knob_A can be set to AND, OR, or NOT — giving 3 programs to try.
+Exemplar + knobs = Representation.
+
+**Step 3 — Try all settings, score each one (Optimization inside a Deme)**
+
+Training data:
+```
+(True,  True)  → expected: True
+(True,  False) → expected: False
+(False, True)  → expected: False
+(False, False) → expected: False
+```
+
+| Knob setting | Program    | Score |
+|---|---|---|
+| OR           | #1 OR #2   | -2 (wrong on 2 rows) |
+| NOT          | NOT #1     | -3 (wrong on 3 rows) |
+| AND          | #1 AND #2  | 0  (perfect!) |
+
+All these scored attempts together = the Deme.
+
+**Step 4 — Keep the best, simplify, merge (Close the Deme)**
+
+The best result (AND, score 0) is converted back into a clean program, simplified to remove
+any redundancy (normalization), and added to the Metapopulation — the master collection of
+all best programs found so far.
+
+**Step 5 — Repeat**
+
+MOSES picks the best program from the metapopulation, uses it as the new exemplar,
+builds a new representation with new knobs, opens a new deme, optimizes again.
+Stops when score is perfect or evaluation limit is reached.
+
+---
+
+### Key Terms in Plain English
+
+```
+Program        -> the thing MOSES is writing (a tree of logic)
+Exemplar       -> the current best guess, used as starting point
+Knob           -> one adjustable dial on the program
+Representation -> exemplar + all its knobs attached
+Instance       -> one specific knob setting = one candidate program
+Deme           -> a bucket of scored instances (one round of experiments)
+Metapopulation -> the master collection of all best programs across all rounds
+Score          -> how correct a program is (0 = perfect, negative = wrong)
+Domination     -> program A dominates B if A is better on every single test row
+Normalization  -> simplifying a program to remove redundant or bloated parts
+```
+
+---
+
+### The Core Chain to Remember
+
+```
+Exemplar -> Representation -> Knobs -> Deme -> Score -> Metapopulation -> Repeat
+```
+
+---
+
 ## Overview
 
 MOSES is not like a neural network. It does not produce a vector of weights.
