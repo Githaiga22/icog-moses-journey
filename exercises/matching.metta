@@ -16,3 +16,5 @@
 !(match &self (= (only-A a) $result) $result)
 !(match &self (= (only-A b) $result) $result)
 !(match &self(= (only-A $x) $result) $result)
+
+; NB, PeTTa only runs correct rules that match, if rule fails, it does not run the output
