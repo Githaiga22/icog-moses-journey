@@ -12,6 +12,7 @@
 ; Example 2
 (= (only-A a) (INPUT IS ACCEPTED))
 
+; This is the match style — querying the Atomspace directly instead of calling the function.
 !(match &self (= (only-A a) $result) $result)
 !(match &self (= (only-A b) $result) $result)
 !(match &self(= (only-A $x) $result) $result)
