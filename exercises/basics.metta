@@ -12,3 +12,6 @@
 ; swapping 3 var
 (= (swap3 (pairs $a $b $c)) (pairs $b $c $a) )
 !(swap3 (pairs 10 20 30))
+
+(= (cdr (Cons $x $xy)) ($xy))
+!(cdr (Cons Hello (Cons There)))
